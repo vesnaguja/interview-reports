@@ -11,11 +11,11 @@ export const loginUser = (mail, pass) => {
 };
 
 
-export const getCandidates = (user) => {
+export const getCandidates = (token) => {
   const options = {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${user.accessToken}`,
+      Authorization: `Bearer ${token}`,
     },
   };
 

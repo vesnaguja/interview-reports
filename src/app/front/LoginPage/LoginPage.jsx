@@ -32,7 +32,7 @@ const LoginPage = ({ user, handleUser }) => {
     // }
 
     loginUser(emailRef.current.value, passwordRef.current.value).then((loginData) => {
-      //console.log(loginData);
+      console.log(loginData);
       if (!loginData.accessToken) {
         setShowError({ active: true, message: loginData });
         return;

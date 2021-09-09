@@ -1,27 +1,28 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import LoginPage from "./front/LoginPage/LoginPage";
-import HomePage from "./front/HomePage/HomePage";
+import LoginPage from "../app/front/LoginPage/LoginPage";
+import HomePage from "../app/front/HomePage/HomePage.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
   const handleUser = (userObject) => {
-    setUser(userObject);
-    localStorage.setItem("user", JSON.stringify(userObject));
+    setToken(userObject);
+    localStorage.setItem("token", userObject.accessToken);
   };
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <HomePage user={user} />
+          <HomePage token={token} />
         </Route>
+
         <Route exact path="/login">
-          <LoginPage user={user} handleUser={handleUser} />
+          <LoginPage token={token} handleUser={handleUser} />
         </Route>
       </Switch>
     </Router>
