@@ -5,7 +5,7 @@ import "./CandidateBasicInfo.css";
 const CandidateBasicInfo = () => {
   return (
     <Container>
-      <Row>
+      <Row className="mt-4">
         <Col sm={12} md={12} lg={4}>
           <img
             src="https://goodshepherdirvine.com/wp-content/uploads/2017/08/user-placeholder.jpg"
