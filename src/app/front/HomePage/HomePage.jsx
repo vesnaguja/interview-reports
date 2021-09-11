@@ -1,5 +1,15 @@
+import Header from '../../shared/Header/Header';
+import Footer from '../../shared/Footer/Footer';
+import CandidateGrid from './CandidateGrid';
+
 const HomePage = () => {
-  return <h1>Home page</h1>
+  return (
+    <>
+      <Header />
+       <CandidateGrid />
+      <Footer />
+    </>
+  )
 }
 
 export default HomePage;
