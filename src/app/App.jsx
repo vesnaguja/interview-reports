@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import LoginPage from "../app/front/LoginPage/LoginPage";
 import HomePage from "../app/front/HomePage/HomePage.jsx";
@@ -9,20 +9,25 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-  const handleUser = (userObject) => {
-    setToken(userObject);
-    localStorage.setItem("token", userObject.accessToken);
+  const handleToken = (tokenString) => {
+    setToken(tokenString);
+
+    if (tokenString === null) {
+      localStorage.removeItem("token");
+    } else {
+      localStorage.setItem("token", tokenString);
+    }
   };
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <HomePage token={token} />
+          {token ? <HomePage token={token} handleToken={handleToken} /> : <Redirect to="/login" />}
         </Route>
 
         <Route exact path="/login">
-          <LoginPage token={token} handleUser={handleUser} />
+          {!token ? <LoginPage token={token} handleToken={handleToken} /> : <Redirect to="/" />}
         </Route>
       </Switch>
     </Router>

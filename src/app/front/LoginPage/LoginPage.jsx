@@ -3,43 +3,31 @@ import { Container, Form, Button, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { loginUser } from "../../../services/service";
 
-const LoginPage = ({ user, handleUser }) => {
+const LoginPage = ({ token, handleToken }) => {
   const [showError, setShowError] = useState({ active: false, message: "" });
-
   const emailRef = useRef();
   const passwordRef = useRef();
-
   const history = useHistory();
-
-  useEffect(() => {
-    if (user) history.push("/");
-  }, [user, history]);
 
   useEffect(() => {
     emailRef.current.value = "dev@dev.com";
     passwordRef.current.value = "developer";
-
     // emailRef.current.focus();
     // console.log(emailRef);
   }, []);
 
   const submitHandler = (event) => {
-    event.preventDefault();
-
-    // if (emailRef.current.value === "" || passwordRef.current.value === "") {
-    //   setShowError({ active: true, message: "Please fill in all fileds." });
-    //   return;
-    // }
+    event.preventDefault();    
 
     loginUser(emailRef.current.value, passwordRef.current.value).then((loginData) => {
-      console.log(loginData);
+      //console.log(loginData);
       if (!loginData.accessToken) {
         setShowError({ active: true, message: loginData });
         return;
       }
 
       // login is successful
-      handleUser(loginData);
+      handleToken(loginData.accessToken);
       history.push("/");
     });
   };
