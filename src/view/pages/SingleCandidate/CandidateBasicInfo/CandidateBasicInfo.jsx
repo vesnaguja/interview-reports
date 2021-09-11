@@ -5,8 +5,7 @@ import { getSingleCandidate } from "../../../../services/service"
 import "./CandidateBasicInfo.css";
 
 const CandidateBasicInfo = () => {
-  const [ candidate, setCandidate ]
-
+ 
   return (
     <Container>
       <Row className="mt-4">
