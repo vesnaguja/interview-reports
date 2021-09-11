@@ -1,3 +1,6 @@
+import Candidate from "../entities/Candidate";
+
+
 export const loginUser = (mail, pass) => {
   const options = {
     method: "POST",
@@ -19,5 +22,8 @@ export const getCandidates = (token) => {
     },
   };
 
-  return fetch("http://localhost:3333/api/candidates", options).then((response) => response.json());
+  return fetch("http://localhost:3333/api/candidates", options).then((response) => response.json()).then(candidates => candidates.map(candidate => {
+    return new Candidate(candidate.id, candidate.name, candidate.email, candidate.birthday, candidate.education)
+  }));
 };
+
