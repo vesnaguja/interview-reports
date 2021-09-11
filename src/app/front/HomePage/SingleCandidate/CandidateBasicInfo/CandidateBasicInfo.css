@@ -1,0 +1,12 @@
+.centered {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: space-around;
+}
+
+img {
+  width: 100%;
+}
