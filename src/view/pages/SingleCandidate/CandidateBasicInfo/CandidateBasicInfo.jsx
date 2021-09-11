@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { getSingleCandidate } from "../../../../services/service"
+
 import "./CandidateBasicInfo.css";
 
 const CandidateBasicInfo = () => {
+  const [ candidate, setCandidate ]
+
   return (
     <Container>
       <Row className="mt-4">
