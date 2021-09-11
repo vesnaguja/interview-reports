@@ -31,7 +31,7 @@ function App() {
           {!token ? <LoginPage token={token} handleToken={handleToken} /> : <Redirect to="/" />}
         </Route>
 
-        <Route path="/candidate">
+        <Route path="/candidate/:id">
           {token ? <SingleCandidate token={token} /> : <Redirect to="/login" />}
         </Route>
       </Switch>

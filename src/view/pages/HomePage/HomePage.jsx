@@ -2,11 +2,11 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import CandidateGrid from './CandidateGrid';
 
-const HomePage = () => {
+const HomePage = ({token}) => {
   return (
     <>
       <Header />
-       <CandidateGrid />
+       <CandidateGrid token={token} />
       <Footer />
     </>
   )
