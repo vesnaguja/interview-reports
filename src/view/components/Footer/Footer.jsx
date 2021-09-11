@@ -1,10 +1,12 @@
 import React from "react";
+import { Container } from "react-bootstrap";
+
 
 const Footer = () => {
   return (
-    <div className="footer container-fluid bg-primary fixed-bottom">
-      <div className="container px-3 py-2 text-light">© 2021 Copyright BIT - TEAM "All Pain, No Gain" </div>
-    </div>
+    <Container fluid className= "bg-primary fixed-bottom">
+      <Container className="py-2 text-light">© 2021 Copyright BIT - TEAM "All Pain, No Gain" </Container>
+    </Container>
   );
 };
 
