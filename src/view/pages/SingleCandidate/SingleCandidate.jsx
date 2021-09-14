@@ -5,14 +5,13 @@ import CandidateBasicInfo from "./CandidateBasicInfo/CandidateBasicInfo";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
-
-const SingleCandidate = ({token}) => {
+const SingleCandidate = ({ token }) => {
   return (
     <>
       <Header />
       <Container>
         <CandidateBasicInfo token={token} />
-        <CandidateReport />
+        <CandidateReport token={token} />
       </Container>
 
       <Footer />
