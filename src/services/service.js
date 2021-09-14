@@ -65,20 +65,21 @@ export const getReports = (token, id) => {
     },
   };
 
-  return fetch(`http://localhost:3333/api/reports?id=${id}`, options)
+  return fetch(`http://localhost:3333/api/reports?candidateId=${id}`, options)
     .then((response) => response.json())
-    .then((reportArray) => {
-      const r = reportArray;
-      return new Reports(
-        r.id,
-        r.candidateId,
-        r.candidateName,
-        r.companyId,
-        r.companyName,
-        r.interviewDate,
-        r.phase,
-        r.status,
-        r.note
-      );
-    });
+    .then((reports) =>
+      reports.map((r) => {
+        return new Reports(
+          r.id,
+          r.candidateId,
+          r.candidateName,
+          r.companyId,
+          r.companyName,
+          r.interviewDate,
+          r.phase,
+          r.status,
+          r.note
+        );
+      })
+    );
 };

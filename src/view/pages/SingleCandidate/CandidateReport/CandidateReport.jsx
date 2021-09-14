@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Table, Container } from "react-bootstrap";
 import { getReports } from "../../../../services/service";
+import Report from "./Report";
 
 const CandidateReport = ({ token }) => {
   let { id } = useParams("id");
   const [reports, setReports] = useState([]);
 
   useEffect(() => {
-    getReports(token, id).then((reportsData) => setReports(reportsData));
+    getReports(token, id).then((reportsData) => {
+      setReports(reportsData);
+    });
   }, [token, id]);
 
   return (
@@ -23,12 +26,9 @@ const CandidateReport = ({ token }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{reports.companyName}</td>
-            <td>{reports.interviewDate}</td>
-            <td>{reports.status}</td>
-            <td>Modul</td>
-          </tr>
+          {reports.map((report) => {
+            return <Report report={report} key={report.id} />;
+          })}
         </tbody>
       </Table>
     </Container>
