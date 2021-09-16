@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { FiEye } from "react-icons/fi";
-import ReportModal from "./ReportModal";
+import ReportModal from "../../../components/ReportModal";
 
 const Report = ({ report }) => {
   const [modalShow, setModalShow] = useState(false);
@@ -12,7 +12,9 @@ const Report = ({ report }) => {
         <td>{report.interviewDate}</td>
         <td>{report.status}</td>
         <td className="text-center">
-          <a href="#id"><FiEye className="text-primary" onClick={() => setModalShow(true)}/></a>
+          <a href="#id">
+            <FiEye className="text-primary" onClick={() => setModalShow(true)} />
+          </a>
         </td>
       </tr>
       <ReportModal report={report} show={modalShow} onHide={() => setModalShow(false)} />
