@@ -8,13 +8,13 @@ import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
 
 const HomePage = ({ token }) => {
+  const [loading, setLoading] = useState(true);
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
     getCandidates(token).then((response) => {
+      setLoading(false);
       setCandidatesList(response);
       setFilteredCandidates(response);
     });
@@ -22,11 +22,7 @@ const HomePage = ({ token }) => {
 
   const onTyping = (e) => {
     const searchString = e.target.value.trim().toLowerCase();
-    setFilteredCandidates(
-      candidatesList.filter((candidate) =>
-        candidate.name.toLowerCase().includes(searchString)
-      )
-    );
+    setFilteredCandidates(candidatesList.filter((candidate) => candidate.name.toLowerCase().includes(searchString)));
   };
 
   return (
@@ -38,10 +34,7 @@ const HomePage = ({ token }) => {
         ) : (
           <Fragment>
             <SearchSection onTypingHandler={onTyping} />
-            <CandidateGrid
-              token={token}
-              filteredCandidates={filteredCandidates}
-            />
+            <CandidateGrid token={token} filteredCandidates={filteredCandidates} />
           </Fragment>
         )}
       </Container>
