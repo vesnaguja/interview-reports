@@ -31,13 +31,13 @@ const HomePage = ({ token }) => {
 
   return (
     <>
-      <Header />
+      <Header title={"Interview Reports"} />
       <Container className="my-5">
         {loading ? (
           <Loader />
         ) : (
           <Fragment>
-            <SearchSection onTypingHandler={onTyping} />
+            <SearchSection onTypingHandler={onTyping} title={"Candidates"} />
             <CandidateGrid
               token={token}
               filteredCandidates={filteredCandidates}

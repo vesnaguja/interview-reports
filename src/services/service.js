@@ -83,3 +83,30 @@ export const getReports = (token, id) => {
       })
     );
 };
+
+export const getAllReports = (token) => {
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  return fetch(`http://localhost:3333/api/reports`, options)
+    .then((response) => response.json())
+    .then((reports) =>
+      reports.map((r) => {
+        return new Reports(
+          r.id,
+          r.candidateId,
+          r.candidateName,
+          r.companyId,
+          r.companyName,
+          r.interviewDate,
+          r.phase,
+          r.status,
+          r.note
+        );
+      })
+    );
+};
