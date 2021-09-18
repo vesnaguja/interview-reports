@@ -7,14 +7,16 @@ import { Container } from "react-bootstrap";
 import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
 
-const HomePage = ({ token }) => {
+const HomePage = () => {
+  const token = localStorage.getItem('token');
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
+   
     getCandidates(token).then((response) => {
+       setLoading(false);
       setCandidatesList(response);
       setFilteredCandidates(response);
     });
@@ -38,8 +40,7 @@ const HomePage = ({ token }) => {
         ) : (
           <Fragment>
             <SearchSection onTypingHandler={onTyping} />
-            <CandidateGrid
-              token={token}
+            <CandidateGrid             
               filteredCandidates={filteredCandidates}
             />
           </Fragment>
