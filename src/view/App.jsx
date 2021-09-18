@@ -12,6 +12,7 @@ import SingleCandidate from "./pages/SingleCandidate/SingleCandidate";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReportsPage from "./pages/ReportsPage/ReportsPage";
+import CreateReportPage from "./pages/CreateReportPage/CreateReportPage";
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -51,6 +52,14 @@ function App() {
 
         <Route path="/reports">
           {token ? <ReportsPage token={token} /> : <Redirect to="/login" />}
+        </Route>
+
+        <Route path="/createreport">
+          {token ? (
+            <CreateReportPage token={token} />
+          ) : (
+            <Redirect to="/login" />
+          )}
         </Route>
       </Switch>
     </Router>
