@@ -1,12 +1,20 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FiEye } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import SingleReportItem from "./SingleReportItem";
 import ReportModal from "../../components/ReportModal";
+import { deleteReportFunction } from "../../../services/service";
+import { getAllReports } from "../../../services/service";
 
-const SingleReport = ({ token, report }) => {
+const SingleReport = ({ token, report, loadingReports }) => {
   const [modalShow, setModalShow] = useState(false);
+
+  const deleteReport = () => {
+    deleteReportFunction(token, report.id);
+    loadingReports();
+  };
+
   return (
     <Container>
       <Row className="border rounded py-2 my-2 bg-white">
@@ -30,12 +38,24 @@ const SingleReport = ({ token, report }) => {
           lg={1}
           className="d-flex justify-content-between align-items-center"
         >
-          <FiEye className="text-primary" size="25px" onClick={() => setModalShow(true)} />
+          <FiEye
+            className="text-primary"
+            size="25px"
+            onClick={() => setModalShow(true)}
+          />
 
-          <IoMdClose className="text-danger" size="25px" />
+          <IoMdClose
+            className="text-danger"
+            size="25px"
+            onClick={deleteReport}
+          />
         </Col>
       </Row>
-        <ReportModal report={report} show={modalShow} onHide={() => setModalShow(false)} />
+      <ReportModal
+        report={report}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
     </Container>
   );
 };
