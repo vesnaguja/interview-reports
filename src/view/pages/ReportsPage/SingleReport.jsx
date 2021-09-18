@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FiEye } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import SingleReportItem from "./SingleReportItem";
+import ReportModal from "../../components/ReportModal";
 
 const SingleReport = ({ token, report }) => {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <Container>
       <Row className="border rounded py-2 my-2 bg-white">
@@ -28,11 +30,12 @@ const SingleReport = ({ token, report }) => {
           lg={1}
           className="d-flex justify-content-between align-items-center"
         >
-          <FiEye className="text-primary" size="25px" />
+          <FiEye className="text-primary" size="25px" onClick={() => setModalShow(true)} />
 
           <IoMdClose className="text-danger" size="25px" />
         </Col>
       </Row>
+        <ReportModal report={report} show={modalShow} onHide={() => setModalShow(false)} />
     </Container>
   );
 };
