@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import CandidateGrid from "./CandidateGrid";
-import SearchSection from "./SearchSection";
+import SearchSection from "../../components/SearchSection";
 import { Container } from "react-bootstrap";
 import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
