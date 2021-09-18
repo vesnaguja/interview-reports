@@ -5,7 +5,6 @@ import { IoMdClose } from "react-icons/io";
 import SingleReportItem from "./SingleReportItem";
 import ReportModal from "../../components/ReportModal";
 import { deleteReportFunction } from "../../../services/service";
-import { getAllReports } from "../../../services/service";
 
 const SingleReport = ({ token, report, loadingReports }) => {
   const [modalShow, setModalShow] = useState(false);
