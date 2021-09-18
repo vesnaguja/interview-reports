@@ -1,9 +1,8 @@
 import { Spinner } from "react-bootstrap";
-import "./Loader.css";
 
 const Loader = () => {
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       <Spinner animation="grow" variant="primary" />
     </div>
   );
