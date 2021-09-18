@@ -14,12 +14,7 @@ const ReportsPage = ({ token }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
-    getAllReports(token).then((response) => {
-      console.log(response);
-      setReportsList(response);
-      setFilteredReports(response);
-    });
+    loadingReports();
   }, [token]);
 
   const onTyping = (e) => {
@@ -33,6 +28,15 @@ const ReportsPage = ({ token }) => {
     );
   };
 
+  const loadingReports = () => {
+    setLoading(false);
+    getAllReports(token).then((response) => {
+      console.log(response);
+      setReportsList(response);
+      setFilteredReports(response);
+    });
+  };
+
   return (
     <Fragment>
       <Header title={"Reports Administration"} />
@@ -43,7 +47,12 @@ const ReportsPage = ({ token }) => {
           <Fragment>
             <SearchSection onTypingHandler={onTyping} title={"Reports"} />
             {filteredReports.map((report) => (
-              <SingleReport token={token} report={report} key={report.id} />
+              <SingleReport
+                token={token}
+                report={report}
+                key={report.id}
+                loadingReports={loadingReports}
+              />
             ))}
           </Fragment>
         )}

@@ -110,3 +110,29 @@ export const getAllReports = (token) => {
       })
     );
 };
+
+export const deleteReportFunction = (token, id) => {
+  const options = {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  return fetch(`http://localhost:3333/api/reports/${id}`, options)
+    .then((response) => response.json())
+    .then(
+      (r) =>
+        new Reports(
+          r.id,
+          r.candidateId,
+          r.candidateName,
+          r.companyId,
+          r.companyName,
+          r.interviewDate,
+          r.phase,
+          r.status,
+          r.note
+        )
+    );
+};
