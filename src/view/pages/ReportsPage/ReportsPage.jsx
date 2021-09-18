@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Loader from "../../components/Loader/Loader";
 import { Container } from "react-bootstrap";
-import SearchSection from "../HomePage/SearchSection";
+import SearchSection from "../../components/SearchSection";
 import SingleReport from "./SingleReport";
 import "./ReportsPage.css";
 import { Link } from "react-router-dom";
