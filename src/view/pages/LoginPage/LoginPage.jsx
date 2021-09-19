@@ -3,7 +3,7 @@ import { Container, Form, Button, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { loginUser } from "../../../services/service";
 
-const LoginPage = ({ token, handleToken }) => {
+const LoginPage = ({ handleToken }) => {
   const [showError, setShowError] = useState({ active: false, message: "" });
   const emailRef = useRef();
   const passwordRef = useRef();

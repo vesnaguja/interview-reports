@@ -10,10 +10,11 @@ import SingleReport from "./SingleReport";
 import "./ReportsPage.css";
 import { Link } from "react-router-dom";
 
-const ReportsPage = ({ token }) => {
+const ReportsPage = () => {
+  const token = localStorage.getItem("token");
+  const [loading, setLoading] = useState(true);
   const [reportsList, setReportsList] = useState([]);
   const [filteredReports, setFilteredReports] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadingReports();
@@ -23,9 +24,7 @@ const ReportsPage = ({ token }) => {
     const searchString = e.target.value.trim().toLowerCase();
     setFilteredReports(
       reportsList.filter(
-        (report) =>
-          report.candidateName.toLowerCase().includes(searchString) ||
-          report.companyName.toLowerCase().includes(searchString)
+        (report) => report.candidateName.toLowerCase().includes(searchString) || report.companyName.toLowerCase().includes(searchString)
       )
     );
   };
@@ -49,22 +48,13 @@ const ReportsPage = ({ token }) => {
           <Fragment>
             <SearchSection onTypingHandler={onTyping} title={"Reports"} />
             {filteredReports.map((report) => (
-              <SingleReport
-                token={token}
-                report={report}
-                key={report.id}
-                loadingReports={loadingReports}
-              />
+              <SingleReport report={report} key={report.id} loadingReports={loadingReports} />
             ))}
           </Fragment>
         )}
         <Link to="/createreport">
           <button className="btn btn-floating" id="creating-report-btn">
-            <BsPlusCircleFill
-              className="bg-white text-primary rounded-circle"
-              id="creating-report-btn"
-              size="50px"
-            />
+            <BsPlusCircleFill className="bg-white text-primary rounded-circle" id="creating-report-btn" size="50px" />
           </button>
         </Link>
       </Container>

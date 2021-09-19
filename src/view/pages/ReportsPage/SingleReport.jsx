@@ -6,7 +6,8 @@ import SingleReportItem from "./SingleReportItem";
 import ReportModal from "../../components/ReportModal";
 import { deleteReportFunction } from "../../../services/service";
 
-const SingleReport = ({ token, report, loadingReports }) => {
+const SingleReport = ({ report, loadingReports }) => {
+  const token = localStorage.getItem("token");
   const [modalShow, setModalShow] = useState(false);
 
   const deleteReport = () => {
