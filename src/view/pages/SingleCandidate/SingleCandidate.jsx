@@ -6,7 +6,6 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 
 const SingleCandidate = () => {
-  const token = localStorage.getItem('token');
   return (
     <>
       <Header />
@@ -14,7 +13,6 @@ const SingleCandidate = () => {
         <CandidateBasicInfo />
         <CandidateReport />
       </Container>
-
       <Footer />
     </>
   );

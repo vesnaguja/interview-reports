@@ -1,6 +1,7 @@
 import Candidate from "../entities/Candidate";
 import Reports from "../entities/Reports";
 
+
 export const loginUser = (mail, pass) => {
   const options = {
     method: "POST",
@@ -19,6 +20,7 @@ export const loginUser = (mail, pass) => {
 };
 
 export const getCandidates = (token) => {
+
   const options = {
     method: "GET",
     headers: {

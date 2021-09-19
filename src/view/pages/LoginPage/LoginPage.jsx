@@ -3,7 +3,7 @@ import { Container, Form, Button, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { loginUser } from "../../../services/service";
 
-const LoginPage = ({ handleToken }) => { 
+const LoginPage = ({ handleToken }) => {
   const [showError, setShowError] = useState({ active: false, message: "" });
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -17,10 +17,9 @@ const LoginPage = ({ handleToken }) => {
   }, []);
 
   const submitHandler = (event) => {
-    event.preventDefault();    
+    event.preventDefault();
 
     loginUser(emailRef.current.value, passwordRef.current.value).then((loginData) => {
-      //console.log(loginData);
       if (!loginData.accessToken) {
         setShowError({ active: true, message: loginData });
         return;

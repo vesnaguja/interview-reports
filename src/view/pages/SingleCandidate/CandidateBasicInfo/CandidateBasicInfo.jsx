@@ -7,7 +7,7 @@ import Loader from "../../../components/Loader/Loader";
 import "./CandidateBasicInfo.css";
 
 const CandidateBasicInfo = () => {
-  const token = localStorage.getItem('token');
+  let token = localStorage.getItem('token');
   let { id } = useParams("id");
 
   const [candidate, setCandidate] = useState({});
