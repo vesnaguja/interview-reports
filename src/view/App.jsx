@@ -11,28 +11,26 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const handleToken = (tokenString) => {
-    setToken(tokenString);
 
-    if (tokenString === null) {
-      localStorage.removeItem("token");
-    } else {
-      localStorage.setItem("token", tokenString);
-    }
+    if(!tokenString) return;
+
+    setToken(tokenString);
+    localStorage.setItem("token", tokenString);
   };
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          {token ? <HomePage token={token} handleToken={handleToken} /> : <Redirect to="/login" />}
+          {token ? <HomePage handleToken={handleToken} /> : <Redirect to="/login" />}
         </Route>
 
         <Route exact path="/login">
-          {!token ? <LoginPage token={token} handleToken={handleToken} /> : <Redirect to="/" />}
+          {!token ? <LoginPage handleToken={handleToken} /> : <Redirect to="/" />}
         </Route>
 
         <Route path="/candidate/:id">
-          {token ? <SingleCandidate token={token} /> : <Redirect to="/login" />}
+          {token ? <SingleCandidate /> : <Redirect to="/login" />}
         </Route>
       </Switch>
     </Router>

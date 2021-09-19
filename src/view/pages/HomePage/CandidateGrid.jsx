@@ -1,7 +1,7 @@
 import { Row } from "react-bootstrap";
 import CandidateCard from "./CandidateCard";
 
-const CandidateGrid = ({ token, filteredCandidates }) => {
+const CandidateGrid = ({ filteredCandidates }) => {
   
   return (
     <Row>
