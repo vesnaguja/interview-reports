@@ -1,9 +1,10 @@
 import { useState, useEffect, Fragment } from "react";
 import SingleCandidate from "./SingleCandidate";
-import SearchSection from "../../HomePage/SearchSection";
+
 import { Container, Row } from "react-bootstrap";
 import { getCandidates } from "../../../../services/service";
 import Loader from "../../../components/Loader/Loader";
+import SearchSection from "../../../components/SearchSection";
 
 const SelectCandidate = ({ token }) => {
   const [candidatesList, setCandidatesList] = useState([]);
@@ -21,11 +22,7 @@ const SelectCandidate = ({ token }) => {
 
   const onTyping = (e) => {
     const searchString = e.target.value.trim().toLowerCase();
-    setFilteredCandidates(
-      candidatesList.filter((candidate) =>
-        candidate.name.toLowerCase().includes(searchString)
-      )
-    );
+    setFilteredCandidates(candidatesList.filter((candidate) => candidate.name.toLowerCase().includes(searchString)));
   };
   return (
     <div>
