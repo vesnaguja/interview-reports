@@ -7,26 +7,23 @@ import { Container } from "react-bootstrap";
 import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
 
-const HomePage = ({ token }) => {
+const HomePage = () => {
+  const [loading, setLoading] = useState(true);
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(false);
+    const token = localStorage.getItem("token");
     getCandidates(token).then((response) => {
+      setLoading(false);
       setCandidatesList(response);
       setFilteredCandidates(response);
     });
-  }, [token]);
+  }, []);
 
   const onTyping = (e) => {
     const searchString = e.target.value.trim().toLowerCase();
-    setFilteredCandidates(
-      candidatesList.filter((candidate) =>
-        candidate.name.toLowerCase().includes(searchString)
-      )
-    );
+    setFilteredCandidates(candidatesList.filter((candidate) => candidate.name.toLowerCase().includes(searchString)));
   };
 
   return (
@@ -38,10 +35,7 @@ const HomePage = ({ token }) => {
         ) : (
           <Fragment>
             <SearchSection onTypingHandler={onTyping} title={"Candidates"} />
-            <CandidateGrid
-              token={token}
-              filteredCandidates={filteredCandidates}
-            />
+            <CandidateGrid filteredCandidates={filteredCandidates} />
           </Fragment>
         )}
       </Container>

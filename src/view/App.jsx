@@ -17,14 +17,10 @@ import CreateReportPage from "./pages/CreateReportPage/CreateReportPage";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-  const handleToken = (tokenString) => {
+    const handleToken = (tokenString) => { 
+    if (!tokenString) return;
     setToken(tokenString);
-
-    if (tokenString === null) {
-      localStorage.removeItem("token");
-    } else {
-      localStorage.setItem("token", tokenString);
-    }
+    localStorage.setItem("token", tokenString);
   };
 
   return (

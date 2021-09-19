@@ -6,7 +6,8 @@ import Loader from "../../../components/Loader/Loader";
 
 import "./CandidateBasicInfo.css";
 
-const CandidateBasicInfo = ({ token }) => {
+const CandidateBasicInfo = () => {
+  const token = localStorage.getItem("token");
   let { id } = useParams("id");
 
   const [candidate, setCandidate] = useState({});
@@ -15,9 +16,7 @@ const CandidateBasicInfo = ({ token }) => {
   useEffect(() => {
     setLoading(false);
 
-    getSingleCandidate(token, id).then((candidateData) =>
-      setCandidate(candidateData)
-    );
+    getSingleCandidate(token, id).then((candidateData) => setCandidate(candidateData));
   }, [token, id]);
 
   return (
@@ -27,10 +26,7 @@ const CandidateBasicInfo = ({ token }) => {
       ) : (
         <Row className="mt-4">
           <Col sm={12} md={12} lg={4}>
-            <img
-              src="https://goodshepherdirvine.com/wp-content/uploads/2017/08/user-placeholder.jpg"
-              alt=""
-            />
+            <img src="https://goodshepherdirvine.com/wp-content/uploads/2017/08/user-placeholder.jpg" alt="" />
           </Col>
           <Col sm={12} md={6} lg={8} className="centered ">
             <Row>

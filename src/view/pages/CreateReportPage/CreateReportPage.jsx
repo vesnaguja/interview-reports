@@ -4,31 +4,33 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Container, Col, Row } from "react-bootstrap";
 import SelectCandidate from "./SelectCandidate/SelectCandidate";
+import { Button } from "react-bootstrap";
 
-const CreateReportPage = ({ token }) => {
+const CreateReportPage = () => {
+  // const token = localStorage.getItem("token");
   const [selectedCandidate, setSelectedCandidate] = useState({});
-
+ 
   const selectionHandler = (candidate) => {
     setSelectedCandidate(candidate);
-    
-  console.log(candidate);
+
+    console.log(selectedCandidate);
   };
 
   return (
     <Fragment>
       <Header title={"Reports Administration"} />
-      <Container>
+      <Container className="mb-5">
         <Row>
           <Col sm={12} md={6} lg={3}>
-            <SelectionSection />
+            <SelectionSection selectedCandidate={selectedCandidate} />
           </Col>
           <Col sm={12} md={6} lg={9} className="border-start">
-            <SelectCandidate
-              selectionHandler={selectionHandler}
-              token={token}
-            />
+            <SelectCandidate selectionHandler={selectionHandler} />
           </Col>
         </Row>
+        <div className="d-flex justify-content-end my-5">
+          <Button disabled>Next</Button>
+        </div>
       </Container>
       <Footer />
     </Fragment>
