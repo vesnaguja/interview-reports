@@ -1,12 +1,11 @@
 import { useState, useEffect, Fragment } from "react";
 import SingleCandidate from "./SingleCandidate";
-
+import SearchSection from "../../../components/SearchSection";
 import { Container, Row } from "react-bootstrap";
 import { getCandidates } from "../../../../services/service";
 import Loader from "../../../components/Loader/Loader";
-import SearchSection from "../../../components/SearchSection";
 
-const SelectCandidate = ({ token }) => {
+const SelectCandidate = ({ token, selectionHandler }) => {
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,7 +13,6 @@ const SelectCandidate = ({ token }) => {
   useEffect(() => {
     setLoading(false);
     getCandidates(token).then((response) => {
-      console.log(response);
       setCandidatesList(response);
       setFilteredCandidates(response);
     });
@@ -24,6 +22,7 @@ const SelectCandidate = ({ token }) => {
     const searchString = e.target.value.trim().toLowerCase();
     setFilteredCandidates(candidatesList.filter((candidate) => candidate.name.toLowerCase().includes(searchString)));
   };
+
   return (
     <div>
       <Container className="my-5">
@@ -36,7 +35,11 @@ const SelectCandidate = ({ token }) => {
             </div>
             <Row>
               {filteredCandidates.map((candidate) => (
-                <SingleCandidate candidate={candidate} key={candidate.id} />
+                <SingleCandidate
+                  candidate={candidate}
+                  key={candidate.id}
+                  onClick={selectionHandler}
+                />
               ))}
             </Row>
           </Fragment>
