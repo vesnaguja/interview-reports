@@ -42,7 +42,7 @@ const SelectCandidate = ({ token, selectionHandler }) => {
                 <SingleCandidate
                   candidate={candidate}
                   key={candidate.id}
-                  onClick={selectionHandler}
+                  selectionHandler={selectionHandler}
                 />
               ))}
             </Row>
