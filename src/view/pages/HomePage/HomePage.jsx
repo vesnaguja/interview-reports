@@ -7,10 +7,11 @@ import { Container } from "react-bootstrap";
 import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
 
+
 const HomePage = () => {
+   const [loading, setLoading] = useState(true);
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
