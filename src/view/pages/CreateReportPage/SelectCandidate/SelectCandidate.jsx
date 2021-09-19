@@ -20,11 +20,7 @@ const SelectCandidate = ({ token, selectionHandler }) => {
 
   const onTyping = (e) => {
     const searchString = e.target.value.trim().toLowerCase();
-    setFilteredCandidates(
-      candidatesList.filter((candidate) =>
-        candidate.name.toLowerCase().includes(searchString)
-      )
-    );
+    setFilteredCandidates(candidatesList.filter((candidate) => candidate.name.toLowerCase().includes(searchString)));
   };
 
   return (

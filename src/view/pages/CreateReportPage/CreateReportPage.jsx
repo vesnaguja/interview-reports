@@ -11,6 +11,7 @@ const CreateReportPage = ({ token }) => {
   const selectionHandler = (candidate) => {
     setSelectedCandidate(candidate);
   };
+  
   return (
     <Fragment>
       <Header title={"Reports Administration"} />
