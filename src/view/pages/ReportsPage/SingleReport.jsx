@@ -36,7 +36,7 @@ const SingleReport = ({ report, loadingReports }) => {
           sm={12}
           md={12}
           lg={1}
-          className="d-flex justify-content-between align-items-center"
+          className="d-flex justify-content-around align-items-center"
         >
           <FiEye
             className="text-primary"
