@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 const SingleCandidate = ({ candidate, selectionHandler }) => {
   return (
-    <Col xs={12} md={12} lg={6} onClick={selectionHandler}>
+    <Col xs={12} md={12} lg={6} onClick={() => selectionHandler(candidate)}>
       <Row className="border m-1">
         <Col xs={2} md={2} lg={2} className="d-flex align-items-center">
           <Image className="w-100 d-flex align-items-center" roundedCircle  src={candidate.avatar} />

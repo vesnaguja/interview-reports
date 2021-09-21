@@ -1,7 +1,7 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
 
-const SelectionSection = () => {
+const SelectionSection = ({selectedCandidate}) => {
   return (
     <Nav
       variant="pills"
