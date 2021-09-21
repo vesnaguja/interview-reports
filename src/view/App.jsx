@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage.jsx";
@@ -17,7 +12,7 @@ import CreateReportPage from "./pages/CreateReportPage/CreateReportPage";
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-    const handleToken = (tokenString) => { 
+  const handleToken = (tokenString) => {
     if (!tokenString) return;
     setToken(tokenString);
     localStorage.setItem("token", tokenString);
@@ -27,36 +22,18 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          {token ? (
-            <HomePage token={token} handleToken={handleToken} />
-          ) : (
-            <Redirect to="/login" />
-          )}
+          {token ? <HomePage token={token} handleToken={handleToken} /> : <Redirect to="/login" />}
         </Route>
 
         <Route exact path="/login">
-          {!token ? (
-            <LoginPage token={token} handleToken={handleToken} />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {!token ? <LoginPage token={token} handleToken={handleToken} /> : <Redirect to="/" />}
         </Route>
 
-        <Route path="/candidate/:id">
-          {token ? <SingleCandidate token={token} /> : <Redirect to="/login" />}
-        </Route>
+        <Route path="/candidate/:id">{token ? <SingleCandidate /> : <Redirect to="/login" />}</Route>
 
-        <Route path="/reports">
-          {token ? <ReportsPage token={token} /> : <Redirect to="/login" />}
-        </Route>
+        <Route path="/reports">{token ? <ReportsPage token={token} /> : <Redirect to="/login" />}</Route>
 
-        <Route path="/createreport">
-          {token ? (
-            <CreateReportPage token={token} />
-          ) : (
-            <Redirect to="/login" />
-          )}
-        </Route>
+        <Route path="/createreport">{token ? <CreateReportPage token={token} /> : <Redirect to="/login" />}</Route>
       </Switch>
     </Router>
   );

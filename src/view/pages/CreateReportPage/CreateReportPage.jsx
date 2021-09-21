@@ -4,6 +4,8 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Container, Col, Row } from "react-bootstrap";
 import SelectCandidate from "./SelectCandidate/SelectCandidate";
+import SelectCompany from "./SelectCompany/SelectCompany";
+
 const newReportInitialState = {
   id: null,
   candidateId: null,
@@ -19,6 +21,7 @@ const CreateReportPage = () => {
   // const token = localStorage.getItem("token");
   const [wizardStep, setWizardStep] = useState(1);
   const [newReport, setNewReport] = useState(newReportInitialState);
+
   const nextPageHandler = () => {
     setWizardStep((prevState) => prevState + 1);
   };
@@ -31,8 +34,12 @@ const CreateReportPage = () => {
       candidateId: candidate.id,
       candidateName: candidate.name,
     });
-    //console.log(candidate);
   };
+
+  const selectCompanyHandler = (company) => {
+    setNewReport({ ...newReport, companyId: company.id, companyName: company.name });
+  };
+
   return (
     <Fragment>
       <Header title={"Reports Administration"} />
@@ -43,10 +50,15 @@ const CreateReportPage = () => {
           </Col>
           <Col sm={12} md={6} lg={9} className="border-start">
             {wizardStep === 1 && (
-              <SelectCandidate
-                selectCandidateHandler={selectCandidateHandler}
+              <SelectCandidate selectCandidateHandler={selectCandidateHandler} newReport={newReport} nextPageHandler={nextPageHandler} />
+            )}
+
+            {wizardStep === 2 && (
+              <SelectCompany
+                selectCompanyHandler={selectCompanyHandler}
                 newReport={newReport}
                 nextPageHandler={nextPageHandler}
+                prevPageHandler={prevPageHandler}
               />
             )}
           </Col>

@@ -1,5 +1,6 @@
 import Candidate from "../entities/Candidate";
 import Reports from "../entities/Reports";
+import Company from "../entities/Company";
 
 export const loginUser = (mail, pass) => {
   const options = {
@@ -19,6 +20,7 @@ export const loginUser = (mail, pass) => {
 };
 
 export const getCandidates = (token) => {
+
   const options = {
     method: "GET",
     headers: {
@@ -123,16 +125,38 @@ export const deleteReportFunction = (token, id) => {
     .then((response) => response.json())
     .then(
       (r) =>
-        new Reports(
-          r.id,
-          r.candidateId,
-          r.candidateName,
-          r.companyId,
-          r.companyName,
-          r.interviewDate,
-          r.phase,
-          r.status,
-          r.note
-        )
+      new Reports(
+        r.id,
+        r.candidateId,
+        r.candidateName,
+        r.companyId,
+        r.companyName,
+        r.interviewDate,
+        r.phase,
+        r.status,
+        r.note
+      )
+    );
+};
+
+
+export const getCompanies = (token) => {
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  return fetch("http://localhost:3333/api/companies", options)
+    .then((response) => response.json())
+    .then((companies) =>
+      companies.map((company) => {
+        return new Company(
+          company.id,
+          company.name,
+          company.email
+        );
+      })
     );
 };

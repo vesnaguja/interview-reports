@@ -11,9 +11,8 @@ const SingleCandidate = () => {
       <Header />
       <Container>
         <CandidateBasicInfo />
-        <CandidateReport  />
+        <CandidateReport />
       </Container>
-
       <Footer />
     </>
   );
