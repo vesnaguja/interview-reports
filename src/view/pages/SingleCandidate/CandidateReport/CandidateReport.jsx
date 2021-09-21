@@ -6,7 +6,7 @@ import Report from "./Report";
 import Loader from "../../../components/Loader/Loader";
 
 const CandidateReport = () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   let { id } = useParams("id");
   const [reports, setReports] = useState([]);
   const [loading, setLoading] = useState(true);

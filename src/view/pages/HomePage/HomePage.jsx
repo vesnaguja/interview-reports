@@ -2,20 +2,18 @@ import { useState, useEffect, Fragment } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import CandidateGrid from "./CandidateGrid";
-import SearchSection from "./SearchSection";
+import SearchSection from "../../components/SearchSection";
 import { Container } from "react-bootstrap";
 import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
 
-
 const HomePage = () => {
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-
     getCandidates(token).then((response) => {
       setLoading(false);
       setCandidatesList(response);
@@ -30,13 +28,13 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
+      <Header title={"Interview Reports"} />
       <Container className="my-5">
         {loading ? (
           <Loader />
         ) : (
           <Fragment>
-            <SearchSection onTypingHandler={onTyping} />
+            <SearchSection onTypingHandler={onTyping} title={"Candidates"} />
             <CandidateGrid filteredCandidates={filteredCandidates} />
           </Fragment>
         )}
