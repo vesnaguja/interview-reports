@@ -5,6 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import { Container, Col, Row } from "react-bootstrap";
 import SelectCandidate from "./SelectCandidate/SelectCandidate";
 import SelectCompany from "./SelectCompany/SelectCompany";
+import FillReportDetails from "./FillReportDetails/FillReportDetails";
 
 const newReportInitialState = {
   id: null,
@@ -17,7 +18,7 @@ const newReportInitialState = {
   status: null,
   note: null,
 };
-const CreateReportPage = () => {
+const CreateReportPage = ({handleToken}) => {
   // const token = localStorage.getItem("token");
   const [wizardStep, setWizardStep] = useState(1);
   const [newReport, setNewReport] = useState(newReportInitialState);
@@ -42,7 +43,7 @@ const CreateReportPage = () => {
 
   return (
     <Fragment>
-      <Header title={"Reports Administration"} />
+      <Header title={"Reports Administration"} handleToken={handleToken} />
       <Container className="mb-5">
         <Row>
           <Col sm={12} md={6} lg={3}>
@@ -61,6 +62,8 @@ const CreateReportPage = () => {
                 prevPageHandler={prevPageHandler}
               />
             )}
+
+            {wizardStep === 3 && <FillReportDetails newReport={newReport} prevPageHandler={prevPageHandler} />}
           </Col>
         </Row>
       </Container>

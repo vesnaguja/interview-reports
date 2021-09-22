@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 import { getCandidates } from "../../../services/service";
 import Loader from "../../components/Loader/Loader";
 
-const HomePage = () => {
+const HomePage = ({handleToken}) => {
   const [loading, setLoading] = useState(true);
   const [candidatesList, setCandidatesList] = useState([]);
   const [filteredCandidates, setFilteredCandidates] = useState([]);
@@ -28,7 +28,7 @@ const HomePage = () => {
 
   return (
     <>
-      <Header title={"Interview Reports"} />
+      <Header title={"Interview Reports"} handleToken={handleToken} />
       <Container className="my-5">
         {loading ? (
           <Loader />
