@@ -160,3 +160,30 @@ export const getCompanies = (token) => {
       })
     );
 };
+
+
+
+export const postNewReport = (token, candidateId, candidateName, companyId, companyName, iterviewDate, phase, status, note) => {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      candidateId: candidateId,
+      candidateName: candidateName,
+      companyId: companyId,
+      companyName: companyName,
+      iterviewDate: iterviewDate,
+      phase: phase,
+      status: status,
+      note: note
+    }),
+  };
+
+
+  return fetch("http://localhost:3333/api/reports", options).then((response) => response.json())
+
+
+};

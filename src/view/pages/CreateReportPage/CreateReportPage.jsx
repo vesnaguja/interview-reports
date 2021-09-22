@@ -5,6 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import { Container, Col, Row } from "react-bootstrap";
 import SelectCandidate from "./SelectCandidate/SelectCandidate";
 import SelectCompany from "./SelectCompany/SelectCompany";
+import FillReportDetails from "./FillReportDetails/FillReportDetails";
 
 const newReportInitialState = {
   id: null,
@@ -61,6 +62,8 @@ const CreateReportPage = () => {
                 prevPageHandler={prevPageHandler}
               />
             )}
+
+            {wizardStep === 3 && <FillReportDetails newReport={newReport} prevPageHandler={prevPageHandler} />}
           </Col>
         </Row>
       </Container>
