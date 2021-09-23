@@ -98,7 +98,7 @@ export const getAllReports = (token) => {
     .then((response) => response.json())
     .then((reports) =>
       reports.map((r) => {
-        return new Reports(
+        const report = new Reports(
           r.id,
           r.candidateId,
           r.candidateName,
@@ -109,6 +109,8 @@ export const getAllReports = (token) => {
           r.status,
           r.note
         );
+
+        return report;
       })
     );
 };
@@ -175,7 +177,7 @@ export const postNewReport = (token, candidateId, candidateName, companyId, comp
       candidateName: candidateName,
       companyId: companyId,
       companyName: companyName,
-      iterviewDate: iterviewDate,
+      interviewDate: iterviewDate,
       phase: phase,
       status: status,
       note: note
@@ -187,3 +189,5 @@ export const postNewReport = (token, candidateId, candidateName, companyId, comp
 
 
 };
+
+
