@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Row, Button, Container, Col } from "react-bootstrap";
 import { postNewReport } from "../../../../services/service";
 import { useHistory } from "react-router-dom";
+import Reports from "../../../../entities/Reports";
 
 const getTodayDate = () => {
   const today = new Date();
@@ -28,9 +29,11 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
 
     const interDate = new Date(interviewDate).toString();
 
-    postNewReport(token, candidateId, candidateName, companyId, companyName, interDate, phase, status, note).then((data) =>
+    const report = new Reports(null, candidateId, candidateName, companyId, companyName, interDate, phase, status, note);
+
+    postNewReport(token, report);/*.then((data) =>
       console.log(data)
-    );
+    );*/
 
     history.push("/reports");
   };
@@ -92,7 +95,9 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
             <Button type="submit" variant="primary">
               Submit
             </Button>
+
           </div>
+          <p>{new Date(interviewDate).toString()}</p>
         </Row>
       </form>
     </Container>

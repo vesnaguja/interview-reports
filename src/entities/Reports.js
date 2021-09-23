@@ -15,9 +15,7 @@ class Reports {
     this.candidateName = candidateName;
     this.companyId = companyId;
     this.companyName = companyName;
-    this.interviewDate = new Date(interviewDate)
-      .toLocaleDateString("en-GB")
-      .replaceAll("/", ".");
+    this.interviewDate = interviewDate;
     this.phase = phase;
     this.status = status;
     this.note = note;

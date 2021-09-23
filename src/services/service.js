@@ -165,29 +165,15 @@ export const getCompanies = (token) => {
 
 
 
-export const postNewReport = (token, candidateId, candidateName, companyId, companyName, iterviewDate, phase, status, note) => {
+export const postNewReport = (token, report) => {
+  if(!(report instanceof Reports)) return;
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({
-      candidateId: candidateId,
-      candidateName: candidateName,
-      companyId: companyId,
-      companyName: companyName,
-      interviewDate: iterviewDate,
-      phase: phase,
-      status: status,
-      note: note
-    }),
+    body: JSON.stringify(report),
   };
-
-
   return fetch("http://localhost:3333/api/reports", options).then((response) => response.json())
-
-
 };
-
-
