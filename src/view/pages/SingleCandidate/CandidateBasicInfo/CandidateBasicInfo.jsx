@@ -25,25 +25,25 @@ const CandidateBasicInfo = () => {
         <Loader />
       ) : (
         <Row className="mt-4">
-          <Col sm={12} md={12} lg={4}>
+          <Col sm={12} md={6} lg={4}>
             <img src="https://goodshepherdirvine.com/wp-content/uploads/2017/08/user-placeholder.jpg" alt="" />
           </Col>
           <Col sm={12} md={6} lg={8} className="centered ">
             <Row>
-              <Col sm={12} md={12} lg={6} className="g-4">
-                <h6>Name:</h6>
+              <Col sm={12} xl={6}>
+                <small className="text-muted">Name:</small>
                 <p className="fs-4">{candidate.name}</p>
               </Col>
-              <Col sm={12} md={12} lg={6} className="g-4">
-                <h6>Date of Birth:</h6>
+              <Col sm={12} xl={6}>
+                <small className="text-muted">Date of Birth:</small>
                 <p className="fs-4">{candidate.birthday}</p>
               </Col>
-              <Col sm={12} md={12} lg={6} className="g-4">
-                <h6>Email:</h6>
+              <Col sm={12} xl={6}>
+                <small className="text-muted">Email:</small>
                 <p className="fs-4">{candidate.email}</p>
               </Col>
-              <Col sm={12} md={12} lg={6} className="g-4">
-                <h6>Education:</h6>
+              <Col sm={12} xl={6}>
+                <small className="text-muted">Education:</small>
                 <p className="fs-4">{candidate.education}</p>
               </Col>
             </Row>
