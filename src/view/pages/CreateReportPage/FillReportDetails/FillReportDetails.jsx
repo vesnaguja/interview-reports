@@ -31,7 +31,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
 
     const report = new Reports(null, candidateId, candidateName, companyId, companyName, interDate, phase, status, note);
 
-    postNewReport(token, report);/*.then((data) =>
+    postNewReport(token, report); /*.then((data) =>
       console.log(data)
     );*/
 
@@ -47,9 +47,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
             <input
               type="date"
               value={interviewDate}
-              // 03:57:58 GMT+0200 (Central European Summer Time)
               max={getTodayDate()}
-              //max={new Date().toJSON().split('T')[0]}
               className="w-100 border rounded p-1"
               required
               onChange={(e) => setInterviewDate(e.target.value)}
@@ -95,9 +93,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
             <Button type="submit" variant="primary">
               Submit
             </Button>
-
           </div>
-          <p>{new Date(interviewDate).toString()}</p>
         </Row>
       </form>
     </Container>
