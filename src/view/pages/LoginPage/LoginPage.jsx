@@ -19,7 +19,13 @@ const LoginPage = ({ handleToken }) => {
   const submitHandler = (event) => {
     event.preventDefault();
 
+    if (emailRef.current.value === "" || passwordRef.current.value === "") {
+      setShowError({ active: true, message: "Please insert email and password." });
+      return;
+    }
+
     loginUser(emailRef.current.value, passwordRef.current.value).then((loginData) => {
+      console.log(loginData);
       if (!loginData.accessToken) {
         setShowError({ active: true, message: loginData });
         return;
