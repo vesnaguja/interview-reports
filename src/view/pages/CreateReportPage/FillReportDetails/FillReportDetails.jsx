@@ -22,6 +22,10 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // proveri da je sve popunjeno
+    if (interviewDate === "" || phase === "select" || status === "select" || note === "") 
+    return;
+
     const candidateId = newReport.candidateId;
     const candidateName = newReport.candidateName;
     const companyId = newReport.companyId;
@@ -86,7 +90,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
 
         <Row>
           <div className="d-flex justify-content-between my-5 container">
-            <Button variant="primary" onClick={prevPageHandler}>
+            <Button variant="secondary" onClick={prevPageHandler}>
               Back
             </Button>
 
