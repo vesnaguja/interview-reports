@@ -20,7 +20,6 @@ export const loginUser = (mail, pass) => {
 };
 
 export const getCandidates = (token) => {
-
   const options = {
     method: "GET",
     headers: {
@@ -123,24 +122,10 @@ export const deleteReportFunction = (token, id) => {
     },
   };
 
-  return fetch(`http://localhost:3333/api/reports/${id}`, options)
-    .then((response) => response.json())
-    .then(
-      (r) =>
-      new Reports(
-        r.id,
-        r.candidateId,
-        r.candidateName,
-        r.companyId,
-        r.companyName,
-        r.interviewDate,
-        r.phase,
-        r.status,
-        r.note
-      )
-    );
+  return fetch(`http://localhost:3333/api/reports/${id}`, options).then(
+    (response) => response.json()
+  );
 };
-
 
 export const getCompanies = (token) => {
   const options = {
@@ -154,19 +139,13 @@ export const getCompanies = (token) => {
     .then((response) => response.json())
     .then((companies) =>
       companies.map((company) => {
-        return new Company(
-          company.id,
-          company.name,
-          company.email
-        );
+        return new Company(company.id, company.name, company.email);
       })
     );
 };
 
-
-
 export const postNewReport = (token, report) => {
-  if(!(report instanceof Reports)) return;
+  if (!(report instanceof Reports)) return;
   const options = {
     method: "POST",
     headers: {
@@ -175,5 +154,7 @@ export const postNewReport = (token, report) => {
     },
     body: JSON.stringify(report),
   };
-  return fetch("http://localhost:3333/api/reports", options).then((response) => response.json())
+  return fetch("http://localhost:3333/api/reports", options).then((response) =>
+    response.json()
+  );
 };
