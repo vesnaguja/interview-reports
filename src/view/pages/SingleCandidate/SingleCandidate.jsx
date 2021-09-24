@@ -8,7 +8,7 @@ import Footer from "../../components/Footer/Footer";
 const SingleCandidate = ({ handleToken }) => {
   return (
     <>
-      <Header handleToken={handleToken} />
+      <Header handleToken={handleToken} title="Interviews Reports" />
       <Container className="mb-5">
         <CandidateBasicInfo />
         <CandidateReport />

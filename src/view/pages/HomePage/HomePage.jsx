@@ -28,7 +28,7 @@ const HomePage = ({handleToken}) => {
 
   return (
     <>
-      <Header title={"Interview Reports"} handleToken={handleToken} />
+      <Header title={"Interviews Reports"} handleToken={handleToken} />
       <Container className="my-5">
         {loading ? (
           <Loader />

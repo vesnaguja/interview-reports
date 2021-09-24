@@ -23,8 +23,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
     e.preventDefault();
 
     // proveri da je sve popunjeno
-    if (interviewDate === "" || phase === "select" || status === "select" || note === "") 
-    return;
+    if (interviewDate === "" || phase === "select" || status === "select" || note === "") return;
 
     const candidateId = newReport.candidateId;
     const candidateName = newReport.candidateName;
