@@ -9,7 +9,7 @@ const Report = ({ report }) => {
     <Fragment>
       <tr id={report.id}>
         <td>{report.companyName}</td>
-        <td>{report.interviewDate}</td>
+        <td>{report.getInterviewDate()}</td>
         <td>{report.status}</td>
         <td className="text-center">
           <a href="#id">

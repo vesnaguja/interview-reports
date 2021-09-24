@@ -20,6 +20,10 @@ class Reports {
     this.status = status;
     this.note = note;
   }
+
+  getInterviewDate() {
+    return new Date(this.interviewDate).toISOString().replace(/T.*/,'').split('-').reverse().join('.')
+  }
 }
 
 export default Reports;
