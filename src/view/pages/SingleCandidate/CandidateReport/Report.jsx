@@ -13,7 +13,7 @@ const Report = ({ report }) => {
         <td>{report.status}</td>
         <td className="text-center">
           <a href="#id">
-            <FiEye className="text-primary" onClick={() => setModalShow(true)} />
+            <FiEye className="text-primary" size="25px" onClick={() => setModalShow(true)} />
           </a>
         </td>
       </tr>
