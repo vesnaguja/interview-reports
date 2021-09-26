@@ -9,11 +9,11 @@ const Report = ({ report }) => {
     <Fragment>
       <tr id={report.id}>
         <td>{report.companyName}</td>
-        <td>{report.interviewDate}</td>
+        <td>{report.getInterviewDate()}</td>
         <td>{report.status}</td>
         <td className="text-center">
           <a href="#id">
-            <FiEye className="text-primary" onClick={() => setModalShow(true)} />
+            <FiEye className="text-primary" size="25px" onClick={() => setModalShow(true)} />
           </a>
         </td>
       </tr>

@@ -39,7 +39,7 @@ const SelectCompany = ({ selectCompanyHandler, newReport, nextPageHandler, prevP
             ))}
 
             <div className="d-flex justify-content-between my-5 container">
-              <Button variant="primary" onClick={prevPageHandler}>
+              <Button variant="secondary" onClick={prevPageHandler}>
                 Back
               </Button>
               <Button variant="primary" disabled={newReport.companyName ? false : true} onClick={nextPageHandler}>

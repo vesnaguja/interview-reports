@@ -18,7 +18,7 @@ const newReportInitialState = {
   status: null,
   note: null,
 };
-const CreateReportPage = () => {
+const CreateReportPage = ({handleToken}) => {
   // const token = localStorage.getItem("token");
   const [wizardStep, setWizardStep] = useState(1);
   const [newReport, setNewReport] = useState(newReportInitialState);
@@ -43,7 +43,7 @@ const CreateReportPage = () => {
 
   return (
     <Fragment>
-      <Header title={"Reports Administration"} />
+      <Header title={"Reports Administration"} handleToken={handleToken} />
       <Container className="mb-5">
         <Row>
           <Col sm={12} md={6} lg={3}>

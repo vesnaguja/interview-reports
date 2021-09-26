@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Row, Button, Container, Col } from "react-bootstrap";
 import { postNewReport } from "../../../../services/service";
 import { useHistory } from "react-router-dom";
+import Reports from "../../../../entities/Reports";
 
-// const getTodayDate = () => {
-//   const today = new Date();
-//   const [month, day, year] = [today.toLocaleString("default", { month: "2-digit" }), today.getDate(), today.getFullYear()];
+const getTodayDate = () => {
+  const today = new Date();
+  const [month, day, year] = [today.toLocaleString("default", { month: "2-digit" }), today.getDate(), today.getFullYear()];
 
-//   return `${year}-${month}-${day}`;
-// };
+  return `${year}-${month}-${day}`;
+};
 
 const SelectCandidate = ({ newReport, prevPageHandler }) => {
   const token = localStorage.getItem("token");
@@ -21,17 +22,23 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // proveri da je sve popunjeno
+    if (interviewDate === "" || phase === "select" || status === "select" || note === "") return;
+
     const candidateId = newReport.candidateId;
     const candidateName = newReport.candidateName;
     const companyId = newReport.companyId;
     const companyName = newReport.companyName;
 
-    postNewReport(token, candidateId, candidateName, companyId, companyName, interviewDate, phase, status, note).then((data) =>
+    const interDate = new Date(interviewDate).toString();
+
+    const report = new Reports(null, candidateId, candidateName, companyId, companyName, interDate, phase, status, note);
+
+    postNewReport(token, report); /*.then((data) =>
       console.log(data)
-    );
+    );*/
 
     history.push("/reports");
-
   };
 
   return (
@@ -43,8 +50,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
             <input
               type="date"
               value={interviewDate}
-              // max={getTodayDate()}
-              // max={new Date().toJSON().split('T')[0]}
+              max={getTodayDate()}
               className="w-100 border rounded p-1"
               required
               onChange={(e) => setInterviewDate(e.target.value)}
@@ -53,7 +59,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
 
           <Col sm={12} lg={4} className="mb-2">
             <label className="text-muted mb-0">Phase:</label>
-            <select value={phase} className="w-100 border rounded p-1" defaultValue="select" onChange={(e) => setPhase(e.target.value)}>
+            <select value={phase} className="w-100 border rounded p-1" onChange={(e) => setPhase(e.target.value)}>
               <option value="select" disabled hidden>
                 Choose phase
               </option>
@@ -66,7 +72,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
 
           <Col sm={12} lg={4} className="mb-2">
             <label className="text-muted mb-0">Status:</label>
-            <select value={status} className="w-100 border rounded p-1" defaultValue="select" onChange={(e) => setStatus(e.target.value)}>
+            <select value={status} className="w-100 border rounded p-1" onChange={(e) => setStatus(e.target.value)}>
               <option value="select" disabled hidden>
                 Choose status
               </option>
@@ -83,7 +89,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
 
         <Row>
           <div className="d-flex justify-content-between my-5 container">
-            <Button variant="primary" onClick={prevPageHandler}>
+            <Button variant="secondary" onClick={prevPageHandler}>
               Back
             </Button>
 

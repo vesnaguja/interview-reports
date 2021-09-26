@@ -26,7 +26,7 @@ const SingleReport = ({ report, loadingReports }) => {
               title={"Candidate"}
             />
             <SingleReportItem
-              report={report.interviewDate}
+              report={report.getInterviewDate()}
               title={"Interview Date"}
             />
             <SingleReportItem report={report.status} title={"Status"} />

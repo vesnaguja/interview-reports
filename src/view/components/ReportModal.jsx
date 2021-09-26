@@ -13,7 +13,7 @@ const ReportModal = ({ report, show, onHide }) => {
               <p className="mb-0">Company</p>
               <p className="fs-4">{report.companyName}</p>
               <p className="mb-0">Interview Date</p>
-              <p className="fs-4">{report.interviewDate}</p>
+              <p className="fs-4">{report.getInterviewDate()}</p>
               <p className="mb-0">Phase</p>
               <p className="fs-4">{report.phase}</p>
               <p className="mb-0">Status</p>

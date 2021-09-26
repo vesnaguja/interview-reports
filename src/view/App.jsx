@@ -13,27 +13,30 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const handleToken = (tokenString) => {
-    if (!tokenString) return;
     setToken(tokenString);
-    localStorage.setItem("token", tokenString);
+    if (tokenString === null) {
+      localStorage.removeItem("token");
+    } else {
+      localStorage.setItem("token", tokenString);
+    }
   };
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          {token ? <HomePage token={token} handleToken={handleToken} /> : <Redirect to="/login" />}
+          {token ? <HomePage handleToken={handleToken} /> : <Redirect to="/login" />}
         </Route>
 
         <Route exact path="/login">
-          {!token ? <LoginPage token={token} handleToken={handleToken} /> : <Redirect to="/" />}
+          {!token ? <LoginPage handleToken={handleToken} /> : <Redirect to="/" />}
         </Route>
 
-        <Route path="/candidate/:id">{token ? <SingleCandidate /> : <Redirect to="/login" />}</Route>
+        <Route path="/candidate/:id">{token ? <SingleCandidate handleToken={handleToken} /> : <Redirect to="/login" />}</Route>
 
-        <Route path="/reports">{token ? <ReportsPage token={token} /> : <Redirect to="/login" />}</Route>
+        <Route path="/reports">{token ? <ReportsPage handleToken={handleToken} /> : <Redirect to="/login" />}</Route>
 
-        <Route path="/createreport">{token ? <CreateReportPage token={token} /> : <Redirect to="/login" />}</Route>
+        <Route path="/createreport">{token ? <CreateReportPage handleToken={handleToken} /> : <Redirect to="/login" />}</Route>
       </Switch>
     </Router>
   );
