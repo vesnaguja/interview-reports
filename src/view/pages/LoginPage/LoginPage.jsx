@@ -33,7 +33,7 @@ const LoginPage = ({ handleToken }) => {
 
       // login is successful
       handleToken(loginData.accessToken);
-      history.push("/");
+      history.push("https://vesnaguja.github.io/interview-reports");
     });
   };
 
