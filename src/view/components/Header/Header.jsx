@@ -8,11 +8,11 @@ const Header = ({ title, handleToken }) => {
       <Container className="d-flex justify-content-between">
         <h3 className="text-white">{title}</h3>
         <div>
-          <Link to="/">
+          <Link to="/interview-reports">
             <Button className="text-primary bg-light">Candidates</Button>
           </Link>
 
-          <Link to="/reports">
+          <Link to="/interview-reports/reports">
             <Button className="text-primary bg-light">Reports</Button>
           </Link>
           <Button className="text-primary bg-light" onClick={() => handleToken(null)}>

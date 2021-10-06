@@ -24,19 +24,19 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          {token ? <HomePage handleToken={handleToken} /> : <Redirect to="/login" />}
+        <Route exact path="/interview-reports">
+          {token ? <HomePage handleToken={handleToken} /> : <Redirect to="/interview-reports/login" />}
         </Route>
 
-        <Route exact path="/login">
+        <Route exact path="/interview-reports/login">
           {!token ? <LoginPage handleToken={handleToken} /> : <Redirect to="/" />}
         </Route>
 
-        <Route path="/candidate/:id">{token ? <SingleCandidate handleToken={handleToken} /> : <Redirect to="/login" />}</Route>
+        <Route path="/interview-reports/candidate/:id">{token ? <SingleCandidate handleToken={handleToken} /> : <Redirect to="/interview-reports/login" />}</Route>
 
-        <Route path="/reports">{token ? <ReportsPage handleToken={handleToken} /> : <Redirect to="/login" />}</Route>
+        <Route path="/interview-reports/reports">{token ? <ReportsPage handleToken={handleToken} /> : <Redirect to="/interview-reports/login" />}</Route>
 
-        <Route path="/createreport">{token ? <CreateReportPage handleToken={handleToken} /> : <Redirect to="/login" />}</Route>
+        <Route path="/interview-reports/createreport">{token ? <CreateReportPage handleToken={handleToken} /> : <Redirect to="/interview-reports/login" />}</Route>
       </Switch>
     </Router>
   );
