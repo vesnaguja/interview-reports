@@ -29,7 +29,7 @@ function App() {
         </Route>
 
         <Route exact path="/interview-reports/login">
-          {!token ? <LoginPage handleToken={handleToken} /> : <Redirect to="/" />}
+          {!token ? <LoginPage handleToken={handleToken} /> : <Redirect to="/interview-reports" />}
         </Route>
 
         <Route path="/interview-reports/candidate/:id">{token ? <SingleCandidate handleToken={handleToken} /> : <Redirect to="/interview-reports/login" />}</Route>
