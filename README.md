@@ -14,19 +14,21 @@ App has:
 - Sticky Footer
 - List of Candidates (landing page)
 - Candidates appear in cards layout. Each card contains name, avatar and email
-- Candidates can be filtered by Candidate name
 
 ![main page](./public/images/candidates.png)
+
+- Candidates can be filtered by Candidate name
+
 ![candidate reports page](./public/images/search-candidates.png)
 
 ### Candidate Reports Page
 by clicking on the candidate card, user is guided to this page, which contains all details about candidate:
-- name
-- avatar 
-- email 
-- education
+- Name
+- Avatar 
+- Email 
+- Education
 - Date of Birth
-- list of all reports related to the selected candidate is shown, including: company, interview date and status
+- List of all reports related to the selected candidate is shown, including: company, interview date and status
 
 ![candidate reports page](./public/images/single-candidate.png)
 
@@ -35,70 +37,56 @@ by clicking on the candidate card, user is guided to this page, which contains a
 ![candidate modal](./public/images/candidate-modal.png)
 
 
+## Administrative Panel – Bonus Project Extension
 
-<!-- ## Available Scripts
+- Responsive administrative panel which is responsible for creating/modifying/deleting Interview Reports
+- Administrative Panel consists of:
 
-In the project directory, you can run:
+### 1. Report list 
+- Reports are rendered in a list
+![list of reports](./public/images/reports.png)
+- Each Report can be viewed in more detail or deleted
+![report details](./public/images/reports-modal.png)
+- List of reports can be filtered by candidate or company name
+![search reports by company name](./public/images/search-reports.png)
 
-### `npm start`
+### 2. Submit Report Page
+- Submitting a Report is done through a “Wizard” which is constructed from three steps
+- Wizard is open when user clicks on a "plus" icon on reports page
+#### Step 1: Select a Candidate
+-	Candidates appear in a list
+-	List of Candidates can be filtered by Candidate Name
+-	When user click on candidate it’s selected
+-	After Candidate is selected “Next” button become enabled and user can click on it
+-	When user click on “Next” button next section “Select Company” should be presented
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![wizard 1st step](./public/images/wizard-1st-step.png)
+![wizard 1st step select candidate](./public/images/wizard-1st-step-select-candidate.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Step 2: Select a Company
 
-### `npm test`
+-	Companies appear in a list
+-	List of Companies can be filtered by Company Name
+- After Company is selected “Next” button become enabled and user can click on it
+-	When user click on “Next” button next section “Fill Report Details” is presented
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![wizard 2nd step](.public/mages/wizard-2nd-step.png)
+![wizard 2nd step select company](.public/mages/wizard-2nd-step-select-company.png)
 
-### `npm run build`
+#### Step 3: Fill Report Details
+-	User can enter all Report fields:
+-	Date
+-	Phase: cv, hr, tech, final
+-	Status: passed, declined
+-	Notes
+-	All input fields are required
+-	Phase must be one of: cv, hr, tech, final
+-	Status must be one of: passed, declined 
+-	Date can not be in the future
+-	Date input is provided via date-picker component
+- When the user clicks “Submit”, a request with all data for creating a report is sent
+-	After successfully created report user is redirected to the reports page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+![wizard 3rd step](.public/mages/wizard-3rd-step.png)
+![wizard 3rd step fill](.public/mages/wizard-3rd-step-fill.png)
+![report is added](.public/mages/report-is-added.png)
