@@ -1,19 +1,16 @@
 # Interview reports app
 
-React SPA for tracking informations about companies, candidates and job interviews.
-Local web server was used as an [API](https://github.com/nenadbugaric/interviews-reports-api-mock/).
+Responsive React SPA for tracking informations about companies, candidates and job interviews.
+Local server was used as an [API](https://github.com/nenadbugaric/interviews-reports-api-mock/).
 
-App has:
  ### Login Page  
- for getting accessToken 
  ![login page](./public/images/login.png)
 
  ### Main Page
- contains:
-- Header which has two navigation buttons (Candidates and Reports) and Logout button
+- Header with two navigation buttons (Candidates and Reports) and Logout button
 - Sticky Footer
 - List of Candidates (landing page)
-- Candidates appear in cards layout. Each card contains name, avatar and email
+- Candidates appear in card layout. Each card contains name, avatar and email
 
 ![main page](./public/images/candidates.png)
 
@@ -37,10 +34,8 @@ by clicking on the candidate card, user is guided to this page, which contains a
 ![candidate modal](./public/images/candidate-modal.png)
 
 
-## Administrative Panel – Bonus Project Extension
-
-- Responsive administrative panel which is responsible for creating/modifying/deleting Interview Reports
-- Administrative Panel consists of:
+## Admin Panel – Bonus Project Extension
+- For creating/modifying/deleting Interview Reports
 
 ### 1. Report list 
 - Reports are rendered in a list
@@ -50,9 +45,9 @@ by clicking on the candidate card, user is guided to this page, which contains a
 - List of reports can be filtered by candidate or company name
 ![search reports by company name](./public/images/search-reports.png)
 
-### 2. Submit Report Page
+### 2. Create New Report
 - Submitting a Report is done through a “Wizard” which is constructed from three steps
-- Wizard is open when user clicks on a "plus" icon on reports page
+
 #### Step 1: Select a Candidate
 -	Candidates appear in a list
 -	List of Candidates can be filtered by Candidate Name
@@ -64,7 +59,6 @@ by clicking on the candidate card, user is guided to this page, which contains a
 ![wizard 1st step select candidate](./public/images/wizard-1st-step-select-candidate.png)
 
 #### Step 2: Select a Company
-
 -	Companies appear in a list
 -	List of Companies can be filtered by Company Name
 - After Company is selected “Next” button become enabled and user can click on it
