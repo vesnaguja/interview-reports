@@ -70,8 +70,8 @@ by clicking on the candidate card, user is guided to this page, which contains a
 - After Company is selected “Next” button become enabled and user can click on it
 -	When user click on “Next” button next section “Fill Report Details” is presented
 
-![wizard 2nd step](.public/images/wizard-2nd-step.png)
-![wizard 2nd step select company](.public/images/wizard-2nd-step-select-company.png)
+![wizard 2nd step](./public/images/wizard-2nd-step.png)
+![wizard 2nd step select company](./public/images/wizard-2nd-step-select-company.png)
 
 #### Step 3: Fill Report Details
 -	User can enter all Report fields:
@@ -87,6 +87,6 @@ by clicking on the candidate card, user is guided to this page, which contains a
 - When the user clicks “Submit”, a request with all data for creating a report is sent
 -	After successfully created report user is redirected to the reports page
 
-![wizard 3rd step](.public/images/wizard-3rd-step.png)
-![wizard 3rd step fill](.public/images/wizard-3rd-step-fill.png)
-![report is added](.public/images/report-is-added.png)
+![wizard 3rd step](./public/images/wizard-3rd-step.png)
+![wizard 3rd step fill](./public/images/wizard-3rd-step-fill.png)
+![report is added](./public/images/report-is-added.png)
