@@ -38,7 +38,7 @@ const SelectCandidate = ({ newReport, prevPageHandler }) => {
       console.log(data)
     );*/
 
-    history.push("/reports");
+    history.push("/interview-reports/reports");
   };
 
   return (

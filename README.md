@@ -1,8 +1,39 @@
-# Getting Started with Create React App
+# Interview reports app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React SPA for tracking informations about companies, candidates and job interviews.
+Local web server was used as an [API](https://github.com/nenadbugaric/interviews-reports-api-mock/).
 
-## Available Scripts
+App has:
+ ### Login Page  
+ for getting accessToken 
+ ![login page](./public/images/login.png)
+
+ ### Main Page
+ contains:
+- Header which has two navigation buttons (Candidates and Reports) and Sticky Footer
+- List of Candidates (landing page)
+- Candidates appear in cards layout. Each card contains name, avatar and email
+- List of Candidates can be filtered by Candidate Name
+- Candidates can be search by name
+![main page](./public/images/search-candidates.png)
+
+### Candidate Reports Page
+by clicking on the candidate card, user is guided to this page, whitch contains all details about candidate:
+- name
+- avatar 
+- email 
+- education
+list of all reports related to the selected candidate is shown,, including:
+- company 
+- interview date
+- status
+click on eye icon opens modal with report details
+![candidate reports page](./public/images/search-candidates.png)
+![candidate modal](./public/images/candidate-modal.png)
+
+
+
+<!-- ## Available Scripts
 
 In the project directory, you can run:
 
@@ -67,4 +98,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->

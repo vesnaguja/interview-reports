@@ -51,7 +51,7 @@ const ReportsPage = ({ handleToken }) => {
             ))}
           </Fragment>
         )}
-        <Link to="/createreport">
+        <Link to="/interview-reports/createreport">
           <button className="btn btn-floating" id="creating-report-btn">
             <BsPlusCircleFill className="bg-white text-primary rounded-circle" id="creating-report-btn" size="50px" />
           </button>

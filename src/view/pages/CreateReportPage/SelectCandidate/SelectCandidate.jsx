@@ -4,6 +4,7 @@ import SearchSection from "../../../components/SearchSection";
 import { Row, Button } from "react-bootstrap";
 import { getCandidates } from "../../../../services/service";
 import Loader from "../../../components/Loader/Loader";
+
 const SelectCandidate = ({
   selectCandidateHandler,
   newReport,
