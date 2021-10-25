@@ -10,25 +10,28 @@ App has:
 
  ### Main Page
  contains:
-- Header which has two navigation buttons (Candidates and Reports) and Sticky Footer
+- Header which has two navigation buttons (Candidates and Reports) and Logout button
+- Sticky Footer
 - List of Candidates (landing page)
 - Candidates appear in cards layout. Each card contains name, avatar and email
-- List of Candidates can be filtered by Candidate Name
-- Candidates can be search by name
-![main page](./public/images/search-candidates.png)
+- Candidates can be filtered by Candidate name
+
+![main page](./public/images/candidates.png)
+![candidate reports page](./public/images/search-candidates.png)
 
 ### Candidate Reports Page
-by clicking on the candidate card, user is guided to this page, whitch contains all details about candidate:
+by clicking on the candidate card, user is guided to this page, which contains all details about candidate:
 - name
 - avatar 
 - email 
 - education
-list of all reports related to the selected candidate is shown,, including:
-- company 
-- interview date
-- status
-click on eye icon opens modal with report details
-![candidate reports page](./public/images/search-candidates.png)
+- Date of Birth
+- list of all reports related to the selected candidate is shown, including: company, interview date and status
+
+![candidate reports page](./public/images/single-candidate.png)
+
+- click on eye icon opens modal with report details
+
 ![candidate modal](./public/images/candidate-modal.png)
 
 
